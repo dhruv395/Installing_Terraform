@@ -1,0 +1,45 @@
+Go to, 
+https://www.terraform.io/downloads.html
+wget https://releases.hashicorp.com/terraform/0.11.14/terraform_0.11.14_linux_amd64.zip 
+apt install unzip
+unzip terraform_0.11.14_linux_amd64.zip
+mkdir downloads
+mv terraform /root/downloads/
+ls -la
+vim ~/.profile
+export PATH="$PATH:~/downloads"
+ source ~/.profile
+terraform --version
+
+Minimal viable configuration:
+
+provider "aws" {
+  access_key = "ACCESS_KEY_HERE"
+  secret_key = "SECRET_KEY_HERE"
+  region     = "us-east-1"
+}
+
+resource "aws_instance" "example" {
+  ami           = "ami-2757f631"
+  instance_type = "t2.micro"
+}
+
+Note: If you simply leave out AWS credentials, Terraform will automatically search for saved API credentials 
+(for example, in ~/.aws/credentials) or IAM instance profile credentials. This option is much cleaner for situations where tf 
+files are checked into source control or where there is more than one admin user.
+
+      apt install awscli
+      aws configure
+     
+terraform init          ->which initializes various local settings and data that will be used by subsequent commands.
+terraform plan          -> to see the execution plan before applying it
+terraform apply         -> execute the file
+terraform show          -> show the history 
+terraform destroy       -> destroy the infrustructure
+
+  
+
+
+
+
+
