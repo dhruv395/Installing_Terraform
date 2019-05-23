@@ -1,17 +1,36 @@
-####create a file 
-vim provider.tf
+########################create a file vim provider.tf
+
 
 provider "aws" {
         region = "${var.aws_region}"
 }
 
+#######################creata a file vim variables.tf
+
+
+variable "aws_region" {
+  description = "region for vpc"
+  default = "us-east-1"
+  }
+
+variable "vpc_cidr" {
+  default = "10.0.0.0/26"
+  }
+
+variable "public_subnet_cidr" {
+  description = "cidr for the public subnet"
+  default = "10.0.0.0/28"
+  }
+
+variable "private_subnet_cidr" {
+  description = "cidr for the private subnet"
+  default = "10.0.0.16/28"
+  }
 
 
 
 
-
-
-####creata a file 
+####################creata a file 
 vim vpc.tf
 
 #define our vpc
