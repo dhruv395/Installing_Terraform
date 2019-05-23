@@ -1,0 +1,21 @@
+provider "aws" {
+ region = "us-east-1"
+}
+
+resource "aws_instance" "first_instance" {
+ ami            = "ami-2757f631"
+ availability_zone = "us-east-1a"
+ instance_type  = "t2.micro"
+ tags {
+  Name          = "tfexample"
+ }
+}
+
+resource "aws_eip" "eip" {
+vpc = true
+}
+
+resource "aws_eip_association" "eip_assoc" {
+  instance_id = "${aws_instance.first_instance.id}"
+  allocation_id = "${aws_eip.eip.id}"
+}
