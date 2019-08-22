@@ -1,7 +1,7 @@
 Go to, 
 https://www.terraform.io/downloads.html
 wget https://releases.hashicorp.com/terraform/0.11.14/terraform_0.11.14_linux_amd64.zip 
-apt install unzip
+## apt install unzip
 unzip terraform_0.11.14_linux_amd64.zip
 mkdir downloads
 mv terraform /root/downloads/
