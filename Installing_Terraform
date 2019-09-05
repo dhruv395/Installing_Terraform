@@ -37,6 +37,9 @@ terraform apply         -> execute the file
 terraform show          -> show the history 
 terraform destroy       -> destroy the infrustructure
 
+terraform plan -out changes.terraform       -> for prod env: save the changes in a file 'changes.terraform'
+terraform apply changes.terraform           -> for prod env: 
+
   
 
 
