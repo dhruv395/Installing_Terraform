@@ -1,0 +1,10 @@
+terraform fmt
+terraform validate
+terraform plan
+terraform plan -out out.terraform
+terraform apply out.terraform
+terraform apply
+terraform show
+
+
+
